@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary-blue: #0062ff;
+    --secondary-green: #4ade80;
+    --soft-bg: #f8fbff;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #ffffff;
+}
+
+/* 1. Custom Gradients */
+.gradient-bg {
+    background: radial-gradient(circle at top right, #eef5ff, transparent),
+                radial-gradient(circle at bottom left, #f0fff4, transparent);
+    background-color: var(--soft-bg);
+}
+
+.blue-gradient {
+    background: linear-gradient(135deg, #0052d4 0%, #4364f7 50%, #6fb1fc 100%);
+}
+
+/* 2. Glassmorphism for the Stats Card (Image 1) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 3. The Connector Line for Steps (Image 4) */
+@media (min-width: 768px) {
+    .step-line::before {
+        content: "";
+        position: absolute;
+        top: 3rem; /* Aligns with the middle of the icons */
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg, #0062ff 0%, #4ade80 50%, #fbbf24 100%);
+        opacity: 0.2;
+        z-index: 0;
+    }
+}
+
+/* 4. Custom Shadows and Borders */
+.service-card {
+    transition: all 0.3s ease;
+    border: 1px solid #f1f5f9;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 20px 25px -5px rgba(0, 98, 255, 0.1), 0 10px 10px -5px rgba(0, 98, 255, 0.04);
+}
+
+/* 5. Icon Containers (Squircle shape) */
+.icon-box {
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.icon-box:hover {
+    transform: rotate(-5deg) scale(1.1);
+}
+
+/* 6. Footer Decoration (Image 6) */
+.footer-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.05;
+}
