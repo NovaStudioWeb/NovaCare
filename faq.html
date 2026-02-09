@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - NovaCare</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); }
+        
+        /* Animación suave para el detalle */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        
+        details[open] summary ~ * {
+            animation: sweep .3s ease-in-out;
+        }
+
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
+
+        /* Estilos menú móvil */
+        #mobile-menu { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 400px; opacity: 1; }
+    </style>
+</head>
+<body class="font-sans text-slate-800 antialiased overflow-x-hidden bg-white">
+
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
+            <a href="index.html" class="flex items-center gap-2 group cursor-pointer">
+                <div class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white text-xl shadow-lg shadow-green-200 group-hover:rotate-12 transition-transform duration-300">
+                    <i class="fas fa-plus-square"></i>
+                </div>
+                <span class="text-2xl font-extrabold text-blue-900 tracking-tight">Nova<span class="text-green-600">Care</span></span>
+            </a>
+
+            <nav class="hidden md:flex gap-8 font-semibold text-gray-500">
+                <a href="index.html" class="hover:text-blue-600 transition-colors">Inicio</a>
+                <a href="index.html#servicios" class="hover:text-blue-600 transition-colors">Servicios</a>
+                <a href="index.html#nosotros" class="hover:text-blue-600 transition-colors">Sobre Nosotros</a>
+                <a href="contacto.html" class="hover:text-blue-600 transition-colors">Contacto</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button class="hidden sm:block bg-blue-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-200 transition-all active:scale-95 transform">
+                    Reservar Cita
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-blue-900 focus:outline-none p-2 rounded-lg hover:bg-blue-50 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100">
+            <nav class="flex flex-col p-6 gap-4 font-semibold text-gray-600 text-center">
+                <a href="index.html" class="hover:text-blue-600 py-2">Inicio</a>
+                <a href="index.html#servicios" class="hover:text-blue-600 py-2">Servicios</a>
+                <a href="contacto.html" class="hover:text-blue-600 py-2">Contacto</a>
+                <button class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold w-full mt-2">
+                    Reservar Cita
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="gradient-bg pt-40 pb-16 px-6 text-center">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <span class="text-blue-600 font-bold tracking-wider text-sm uppercase bg-blue-50 px-4 py-1 rounded-full mb-4 inline-block">Centro de Ayuda</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">Preguntas Frecuentes</h1>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto">Resolvemos tus dudas más comunes sobre nuestros servicios, seguros médicos y procesos de atención.</p>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 md:px-10 max-w-4xl mx-auto">
+        
+        <div class="mb-12" data-aos="fade-up">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fas fa-calendar-check text-blue-500"></i> Citas y Atención
+            </h3>
+            
+            <div class="space-y-4">
+                <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-lg p-6 text-slate-800 bg-slate-50/50 hover:bg-blue-50 transition-colors">
+                        ¿Cómo puedo agendar una cita médica?
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-blue-600">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 text-gray-600 leading-relaxed border-t border-slate-100">
+                        Puedes agendar tu cita de tres maneras: llamando directamente a nuestro número (809) 567-8900, enviando un mensaje por WhatsApp, o utilizando el botón "Reservar Cita" en la parte superior de esta página.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-lg p-6 text-slate-800 bg-slate-50/50 hover:bg-blue-50 transition-colors">
+                        ¿Cuál es el horario de atención?
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-blue-600">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 text-gray-600 leading-relaxed border-t border-slate-100">
+                        Nuestro horario de consultas externas es de Lunes a Viernes de 8:00 AM a 8:00 PM, y Sábados de 9:00 AM a 1:00 PM. El área de emergencias opera las 24 horas del día, los 7 días de la semana.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-blue-300 transition-colors cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-lg p-6 text-slate-800 bg-slate-50/50 hover:bg-blue-50 transition-colors">
+                        ¿Necesito llegar antes de mi hora de cita?
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-blue-600">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 text-gray-600 leading-relaxed border-t border-slate-100">
+                        Sí, recomendamos llegar al menos 15 minutos antes de su hora programada para completar cualquier formulario necesario en recepción y asegurar que su consulta comience a tiempo.
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="mb-12" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fas fa-shield-alt text-green-500"></i> Seguros y Pagos
+            </h3>
+            
+            <div class="space-y-4">
+                <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-green-300 transition-colors cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-lg p-6 text-slate-800 bg-slate-50/50 hover:bg-green-50 transition-colors">
+                        ¿Qué seguros médicos aceptan?
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-green-600">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 text-gray-600 leading-relaxed border-t border-slate-100">
+                        Trabajamos con las principales aseguradoras nacionales (ARS Humano, Palic, Universal, Senasa Contributivo, etc.) y varios seguros internacionales. Le sugerimos llamar para confirmar la cobertura específica de su plan.
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-green-300 transition-colors cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-lg p-6 text-slate-800 bg-slate-50/50 hover:bg-green-50 transition-colors">
+                        ¿Cuáles son los métodos de pago?
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-green-600">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 text-gray-600 leading-relaxed border-t border-slate-100">
+                        Aceptamos efectivo, tarjetas de crédito y débito (Visa, MasterCard, Amex) y transferencias bancarias instantáneas.
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="mb-12" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fas fa-flask text-cyan-500"></i> Resultados y Estudios
+            </h3>
+            
+            <div class="space-y-4">
+                <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-cyan-300 transition-colors cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-lg p-6 text-slate-800 bg-slate-50/50 hover:bg-cyan-50 transition-colors">
+                        ¿Puedo ver mis resultados en línea?
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-cyan-600">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="p-6 text-gray-600 leading-relaxed border-t border-slate-100">
+                        Sí, contamos con un portal de pacientes. Al momento de realizar sus estudios, le entregaremos un usuario y contraseña para que pueda descargar sus resultados desde nuestra web sin necesidad de volver al centro.
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="bg-blue-600 rounded-3xl p-10 text-center text-white shadow-xl" data-aos="zoom-in">
+            <h3 class="text-2xl font-bold mb-4">¿No encontraste tu respuesta?</h3>
+            <p class="text-blue-100 mb-8 max-w-lg mx-auto">No te preocupes, nuestro equipo de soporte está disponible para responder cualquier duda específica que tengas.</p>
+            <a href="contacto.html" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all transform hover:-translate-y-1">
+                Contáctanos Directamente
+            </a>
+        </div>
+
+    </section>
+
+    <footer class="bg-zinc-900 text-white pt-20 pb-10 px-6 md:px-10 mt-10">
+        <div class="max-w-7xl mx-auto border-b border-zinc-800 pb-12 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white">
+                        <i class="fas fa-plus-square text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold">Nova<span class="text-green-500">Care</span></span>
+                </div>
+                <p class="text-zinc-400 text-sm mb-6">Centro médico de confianza comprometido con tu salud.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Enlaces Rápidos</h4>
+                <ul class="text-zinc-400 space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-blue-400 transition-colors">Inicio</a></li>
+                    <li><a href="index.html#servicios" class="hover:text-blue-400 transition-colors">Servicios</a></li>
+                    <li><a href="FAQ.html" class="text-white font-bold transition-colors">FAQs</a></li>
+                    <li><a href="contacto.html" class="hover:text-blue-400 transition-colors">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Contacto</h4>
+                <ul class="text-zinc-400 space-y-2 text-sm">
+                    <li><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i> Calle Principal #123</li>
+                    <li><i class="fas fa-phone mr-2 text-blue-500"></i> +1 (809) 567-8900</li>
+                    <li><i class="fas fa-envelope mr-2 text-blue-500"></i> contacto@novacare.com</li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center text-zinc-500 text-xs mt-10 border-t border-zinc-800 pt-8">
+            © 2026 NovaCare. Todos los derechos reservados. 
+            <span class="block sm:inline mt-2 sm:mt-0 sm:ml-4">
+                Desarrollado por 
+                <a href="https://novastudioweb.github.io" target="_blank" class="text-zinc-400 hover:text-blue-500 transition-colors font-semibold">
+                    Nova Studio Web
+                </a>
+            </span>
+        </p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800 });
+
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            const icon = btn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Opcional: Cerrar otros detalles cuando uno se abre (Efecto Acordeón estricto)
+        const details = document.querySelectorAll("details");
+        details.forEach((targetDetail) => {
+            targetDetail.addEventListener("click", () => {
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute("open");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
