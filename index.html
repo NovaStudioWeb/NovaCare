@@ -1,268 +1,407 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaCare - Atención Médica Profesional</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    
     <style>
+        /* Fallbacks rápidos por si no carga el style.css externo */
         .gradient-bg { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); }
         .blue-gradient { background: linear-gradient(90deg, #0062ff 0%, #00a3ff 100%); }
+        
+        /* Estilos para el menú móvil */
+        #mobile-menu { transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
+        #mobile-menu.open { max-height: 400px; opacity: 1; }
     </style>
-    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="font-sans text-slate-800">
+<body class="font-sans text-slate-800 antialiased overflow-x-hidden">
 
-    <header class="flex justify-between items-center px-10 py-5 bg-white sticky top-0 z-50 shadow-sm">
-        <div class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white text-xl">
-                <i class="fas fa-plus-square"></i>
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-2 group cursor-pointer" data-aos="fade-down">
+                <div class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white text-xl shadow-lg shadow-green-200 group-hover:rotate-12 transition-transform duration-300">
+                    <i class="fas fa-plus-square"></i>
+                </div>
+                <span class="text-2xl font-extrabold text-blue-900 tracking-tight">Nova<span class="text-green-600">Care</span></span>
             </div>
-            <span class="text-2xl font-bold text-blue-900">Nova<span class="text-green-600">Care</span></span>
+
+            <nav class="hidden md:flex gap-8 font-semibold text-gray-500" data-aos="fade-down" data-aos-delay="100">
+                <a href="#servicios" class="hover:text-blue-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all duration-300">Servicios</a>
+                <a href="#nosotros" class="hover:text-blue-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all duration-300">Sobre Nosotros</a>
+                <a href="#" class="hover:text-blue-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all duration-300">Blog</a>
+                <a href="./contacto.html" class="hover:text-blue-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all duration-300">Contacto</a>
+            </nav>
+
+            <div class="flex items-center gap-4" data-aos="fade-down" data-aos-delay="200">
+                <button class="hidden sm:block bg-blue-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-200 transition-all active:scale-95 transform">
+                    Reservar Cita
+                </button>
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-blue-900 focus:outline-none p-2 rounded-lg hover:bg-blue-50 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-        <nav class="hidden md:flex gap-8 font-medium text-gray-600">
-            <a href="#" class="hover:text-blue-600">Servicios</a>
-            <a href="#" class="hover:text-blue-600">Sobre Nosotros</a>
-            <a href="#" class="hover:text-blue-600">Blog</a>
-            <a href="#" class="hover:text-blue-600">Contacto</a>
-        </nav>
-        <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-            Reservar Cita
-        </button>
+
+        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100">
+            <nav class="flex flex-col p-6 gap-4 font-semibold text-gray-600 text-center">
+                <a href="#servicios" class="hover:text-blue-600 py-2">Servicios</a>
+                <a href="#nosotros" class="hover:text-blue-600 py-2">Sobre Nosotros</a>
+                <a href="#" class="hover:text-blue-600 py-2">Blog</a>
+                <a href="./contacto.html" class="hover:text-blue-600 py-2">Contacto</a>
+                <button class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold w-full mt-2">
+                    Reservar Cita
+                </button>
+            </nav>
+        </div>
     </header>
 
-    <section class="gradient-bg px-10 py-20 flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/2">
-            <span class="bg-white px-4 py-1 rounded-full text-sm font-semibold shadow-sm text-blue-600 border border-blue-100">
-                <i class="fas fa-shield-alt mr-2"></i> Centro Médico de Confianza
-            </span>
-            <h1 class="text-6xl font-bold mt-6 leading-tight">
-                Atención Médica <span class="text-blue-600">Profesional</span> que Pone tu Salud Primero
-            </h1>
-            <p class="text-gray-500 mt-6 text-lg max-w-lg">
-                Accede a servicios médicos integrales con un equipo especializado que combina experiencia, tecnología moderna y atención personalizada.
-            </p>
-            <div class="mt-10 flex gap-4">
-                <button class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold hover:shadow-lg transition">Reservar mi Cita &rarr;</button>
-                <button class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition">Ver Servicios &rarr;</button>
+    <section class="gradient-bg pt-32 pb-20 px-6 md:px-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            
+            <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                <span class="inline-block bg-white px-4 py-1.5 rounded-full text-sm font-bold shadow-sm text-blue-600 border border-blue-100 mb-6">
+                    <i class="fas fa-shield-alt mr-2"></i> Centro Médico de Confianza
+                </span>
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-slate-900">
+                    Atención Médica <span class="text-blue-600 relative inline-block">
+                        Profesional
+                        <svg class="absolute w-full h-3 -bottom-1 left-0 text-blue-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none" /></svg>
+                    </span> <br>que Pone tu Salud Primero
+                </h1>
+                <p class="text-gray-500 mt-6 text-lg max-w-lg leading-relaxed">
+                    Accede a servicios médicos integrales con un equipo especializado que combina experiencia, tecnología moderna y atención personalizada.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                    <button class="bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-200 transition-all transform hover:-translate-y-1">
+                        Reservar mi Cita &rarr;
+                    </button>
+                    <button class="bg-white border-2 border-blue-100 text-blue-600 px-8 py-4 rounded-xl font-bold hover:border-blue-600 hover:bg-blue-50 transition-all">
+                        Ver Servicios &rarr;
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="md:w-1/2 relative">
-            <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=800" alt="Doctor holding hands" class="rounded-3xl shadow-2xl">
-            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl flex justify-around shadow-lg">
-                <div class="text-center">
-                    <p class="text-2xl font-bold text-blue-600">1000+</p>
-                    <p class="text-xs text-gray-500 uppercase">Pacientes Atendidos</p>
+
+            <div class="md:w-1/2 relative" data-aos="fade-left" data-aos-duration="1000">
+                <div class="relative z-10">
+                    <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&q=80&w=800" alt="Doctor sonriendo" class="rounded-3xl shadow-2xl w-full object-cover transform hover:scale-[1.01] transition-transform duration-500">
+                    
+                    <div class="glass-card absolute bottom-6 left-6 right-6 p-5 rounded-2xl flex justify-around shadow-lg animate-float" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="text-center border-r border-gray-200 w-1/2">
+                            <p class="text-3xl font-bold text-blue-600">1000+</p>
+                            <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Pacientes</p>
+                        </div>
+                        <div class="text-center w-1/2">
+                            <div class="flex items-center justify-center gap-1">
+                                <span class="text-3xl font-bold text-green-500">4.9</span>
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                            </div>
+                            <p class="text-xs text-gray-500 font-bold uppercase tracking-wider mt-1">Satisfacción</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <p class="text-2xl font-bold text-green-500">4.9/5</p>
-                    <p class="text-xs text-gray-500 uppercase">Satisfacción</p>
-                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-100/50 rounded-full blur-3xl -z-0"></div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 px-10 text-center">
-        <h2 class="text-4xl font-bold">Servicios Médicos <span class="text-blue-600">Completos</span></h2>
-        <p class="text-gray-500 mt-4">Desde consultas generales hasta especialidades avanzadas.</p>
+    <section id="servicios" class="py-24 px-6 md:px-10 text-center max-w-7xl mx-auto">
+        <div data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-slate-900">Servicios Médicos <span class="text-blue-600">Completos</span></h2>
+            <p class="text-gray-500 mt-4 text-lg">Desde consultas generales hasta especialidades avanzadas.</p>
+        </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div class="p-8 border border-gray-100 rounded-2xl hover:border-blue-300 hover:shadow-xl transition text-left group">
-                <div class="w-12 h-12 bg-blue-600 rounded-xl mb-6 flex items-center justify-center text-white">
+            <div class="service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-blue-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon-box w-14 h-14 bg-blue-600 text-white mb-6 text-2xl shadow-lg shadow-blue-200">
                     <i class="fas fa-stethoscope"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-4">Medicina General</h3>
-                <p class="text-gray-500 mb-6">Consultas médicas de rutina, diagnósticos precisos y seguimiento personalizado.</p>
-                <a href="#" class="text-blue-600 font-bold group-hover:underline">Ver más &rarr;</a>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Medicina General</h3>
+                <p class="text-gray-500 mb-6 leading-relaxed">Consultas médicas de rutina, diagnósticos precisos y seguimiento personalizado para toda la familia.</p>
+                <a href="#" class="text-blue-600 font-bold group-hover:underline flex items-center gap-2">Ver más <i class="fas fa-arrow-right text-sm"></i></a>
             </div>
-            <div class="p-8 border border-gray-100 rounded-2xl hover:border-blue-300 hover:shadow-xl transition text-left group">
-                <div class="w-12 h-12 bg-cyan-400 rounded-xl mb-6 flex items-center justify-center text-white">
+
+            <div class="service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-cyan-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box w-14 h-14 bg-cyan-400 text-white mb-6 text-2xl shadow-lg shadow-cyan-200">
                     <i class="fas fa-heartbeat"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-4">Cardiología</h3>
-                <p class="text-gray-500 mb-6">Especialistas en salud cardiovascular con tecnología de punta para prevención.</p>
-                <a href="#" class="text-blue-600 font-bold group-hover:underline">Ver más &rarr;</a>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Cardiología</h3>
+                <p class="text-gray-500 mb-6 leading-relaxed">Especialistas en salud cardiovascular con tecnología de punta para la prevención y el tratamiento.</p>
+                <a href="#" class="text-cyan-500 font-bold group-hover:underline flex items-center gap-2">Ver más <i class="fas fa-arrow-right text-sm"></i></a>
             </div>
-            <div class="p-8 border border-blue-200 bg-blue-50/30 rounded-2xl shadow-sm text-left group">
-                <div class="w-12 h-12 bg-green-500 rounded-xl mb-6 flex items-center justify-center text-white">
+
+            <div class="service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-green-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box w-14 h-14 bg-green-500 text-white mb-6 text-2xl shadow-lg shadow-green-200">
                     <i class="fas fa-baby"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-4">Pediatría</h3>
-                <p class="text-gray-500 mb-6">Cuidado especializado para los más pequeños, con un enfoque amable.</p>
-                <a href="#" class="text-blue-600 font-bold group-hover:underline">Ver más &rarr;</a>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Pediatría</h3>
+                <p class="text-gray-500 mb-6 leading-relaxed">Cuidado especializado para los más pequeños, con un enfoque amable, seguro y divertido.</p>
+                <a href="#" class="text-green-500 font-bold group-hover:underline flex items-center gap-2">Ver más <i class="fas fa-arrow-right text-sm"></i></a>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-10 bg-white">
+    <section id="nosotros" class="py-24 px-6 md:px-10 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
-            <div class="md:w-1/2 relative">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" 
-                     alt="Doctor digital" class="rounded-3xl shadow-xl">
-                <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-2xl flex items-center gap-4">
-                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div>
-                        <p class="text-2xl font-bold text-slate-800">15+</p>
-                        <p class="text-sm text-gray-500">Años de Experiencia</p>
+            
+            <div class="md:w-1/2 relative" data-aos="fade-right">
+                <div class="relative z-10">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" 
+                         alt="Doctor digital usando tablet" class="rounded-3xl shadow-xl w-full">
+                    
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-2xl flex items-center gap-4 border border-slate-100 animate-bounce-slow">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-slate-800">15+</p>
+                            <p class="text-sm text-gray-500 font-medium">Años de Experiencia</p>
+                        </div>
                     </div>
                 </div>
+                <div class="absolute -top-10 -left-10 w-40 h-40 bg-dots opacity-20"></div>
             </div>
 
-            <div class="md:w-1/2">
-                <h2 class="text-4xl font-bold mb-4">¿Por Qué Elegir <span class="text-blue-600">NovaCare?</span></h2>
-                <p class="text-gray-500 mb-10 text-lg">Combinamos experiencia médica comprobada con un enfoque centrado en el paciente.</p>
+            <div class="md:w-1/2" data-aos="fade-left">
+                <h2 class="text-4xl font-bold mb-6 text-slate-900">¿Por Qué Elegir <span class="text-blue-600">NovaCare?</span></h2>
+                <p class="text-gray-500 mb-10 text-lg leading-relaxed">Combinamos experiencia médica comprobada con un enfoque centrado en el paciente, garantizando que te sientas escuchado y cuidado.</p>
                 
                 <div class="space-y-8">
-                    <div class="flex gap-5">
-                        <div class="flex-shrink-0 w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
+                    <div class="flex gap-5 group">
+                        <div class="flex-shrink-0 w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                             <i class="fas fa-user-md"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-lg">Profesionales Altamente Capacitados</h4>
-                            <p class="text-gray-500 text-sm">Equipo con certificaciones internacionales y actualización constante.</p>
+                            <h4 class="font-bold text-xl text-slate-800 mb-1">Profesionales Capacitados</h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">Equipo con certificaciones internacionales y actualización constante.</p>
                         </div>
                     </div>
-                    <div class="flex gap-5">
-                        <div class="flex-shrink-0 w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center">
+                    <div class="flex gap-5 group">
+                        <div class="flex-shrink-0 w-14 h-14 bg-cyan-50 text-cyan-600 rounded-2xl flex items-center justify-center text-xl group-hover:bg-cyan-500 group-hover:text-white transition-colors duration-300">
                             <i class="fas fa-microscope"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-lg">Tecnología Médica Avanzada</h4>
-                            <p class="text-gray-500 text-sm">Equipos de última generación que garantizan diagnósticos precisos.</p>
+                            <h4 class="font-bold text-xl text-slate-800 mb-1">Tecnología Avanzada</h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">Equipos de última generación que garantizan diagnósticos precisos.</p>
                         </div>
                     </div>
-                    <div class="flex gap-5">
-                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center">
+                    <div class="flex gap-5 group">
+                        <div class="flex-shrink-0 w-14 h-14 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center text-xl group-hover:bg-green-500 group-hover:text-white transition-colors duration-300">
                             <i class="fas fa-hand-holding-heart"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-lg">Atención Personalizada y Humana</h4>
-                            <p class="text-gray-500 text-sm">Creamos planes de tratamiento individualizados y empáticos.</p>
+                            <h4 class="font-bold text-xl text-slate-800 mb-1">Atención Humana</h4>
+                            <p class="text-gray-500 text-sm leading-relaxed">Creamos planes de tratamiento individualizados y empáticos.</p>
                         </div>
                     </div>
                 </div>
-                <button class="mt-12 bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+                
+                <button class="mt-12 bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 hover:shadow-lg transition-all">
                     Conoce Más Sobre Nosotros &rarr;
                 </button>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-10 bg-slate-50">
+    <section class="py-24 px-6 md:px-10 bg-slate-50">
         <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4 text-slate-800">Tu Camino hacia la <span class="text-blue-600">Mejor Atención</span></h2>
-            <p class="text-gray-500 mb-20 max-w-2xl mx-auto">Acceder a atención médica de calidad nunca ha sido tan simple. Sigue estos pasos.</p>
+            <div data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4 text-slate-800">Tu Camino hacia la <span class="text-blue-600">Mejor Atención</span></h2>
+                <p class="text-gray-500 mb-20 max-w-2xl mx-auto text-lg">Acceder a atención médica de calidad nunca ha sido tan simple. Sigue estos pasos.</p>
+            </div>
             
-            <div class="relative flex flex-col md:flex-row justify-between gap-8">
-                <div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-green-400 to-yellow-400 z-0 opacity-30"></div>
-
-                <div class="relative z-10 flex-1 group">
-                    <div class="w-24 h-24 bg-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition relative">
+            <div class="relative step-line flex flex-col md:flex-row justify-between gap-8">
+                <div class="relative z-10 flex-1 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 bg-white border-4 border-blue-50 rounded-full mx-auto mb-6 flex items-center justify-center text-blue-600 text-3xl shadow-md group-hover:scale-110 group-hover:border-blue-200 transition-all duration-300 relative">
                         <i class="fas fa-calendar-check"></i>
-                        <span class="absolute -top-2 -right-2 w-8 h-8 bg-blue-100 text-blue-600 rounded-full text-sm font-bold flex items-center justify-center border-2 border-white">1</span>
+                        <span class="absolute -top-2 -right-2 w-8 h-8 bg-blue-600 text-white rounded-full text-sm font-bold flex items-center justify-center border-2 border-white">1</span>
                     </div>
-                    <h4 class="font-bold text-xl mb-2">Reserva tu Cita</h4>
+                    <h4 class="font-bold text-xl mb-2 text-slate-800">Reserva tu Cita</h4>
                     <p class="text-gray-500 text-sm px-4">Llama, escribe por WhatsApp o usa nuestro formulario online.</p>
                 </div>
 
-                <div class="relative z-10 flex-1 group">
-                    <div class="w-24 h-24 bg-emerald-400 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition relative">
+                <div class="relative z-10 flex-1 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 bg-white border-4 border-emerald-50 rounded-full mx-auto mb-6 flex items-center justify-center text-emerald-500 text-3xl shadow-md group-hover:scale-110 group-hover:border-emerald-200 transition-all duration-300 relative">
                         <i class="fas fa-file-medical"></i>
-                        <span class="absolute -top-2 -right-2 w-8 h-8 bg-emerald-100 text-emerald-600 rounded-full text-sm font-bold flex items-center justify-center border-2 border-white">2</span>
+                        <span class="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 text-white rounded-full text-sm font-bold flex items-center justify-center border-2 border-white">2</span>
                     </div>
-                    <h4 class="font-bold text-xl mb-2">Consulta Inicial</h4>
-                    <p class="text-gray-500 text-sm px-4">Nuestro médico revisa tu historial y realiza una evaluación completa.</p>
+                    <h4 class="font-bold text-xl mb-2 text-slate-800">Consulta Inicial</h4>
+                    <p class="text-gray-500 text-sm px-4">Nuestro médico revisa tu historial y realiza una evaluación.</p>
                 </div>
 
-                <div class="relative z-10 flex-1 group">
-                    <div class="w-24 h-24 bg-yellow-400 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition relative">
+                <div class="relative z-10 flex-1 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 bg-white border-4 border-yellow-50 rounded-full mx-auto mb-6 flex items-center justify-center text-yellow-500 text-3xl shadow-md group-hover:scale-110 group-hover:border-yellow-200 transition-all duration-300 relative">
                         <i class="fas fa-clipboard-list"></i>
-                        <span class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-100 text-yellow-700 rounded-full text-sm font-bold flex items-center justify-center border-2 border-white">3</span>
+                        <span class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-500 text-white rounded-full text-sm font-bold flex items-center justify-center border-2 border-white">3</span>
                     </div>
-                    <h4 class="font-bold text-xl mb-2">Plan Personalizado</h4>
+                    <h4 class="font-bold text-xl mb-2 text-slate-800">Plan Personalizado</h4>
                     <p class="text-gray-500 text-sm px-4">Recibe un plan de tratamiento diseñado específicamente para ti.</p>
                 </div>
 
-                <div class="relative z-10 flex-1 group">
-                    <div class="w-24 h-24 bg-slate-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition relative">
+                <div class="relative z-10 flex-1 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-24 h-24 bg-white border-4 border-slate-50 rounded-full mx-auto mb-6 flex items-center justify-center text-slate-500 text-3xl shadow-md group-hover:scale-110 group-hover:border-slate-200 transition-all duration-300 relative">
                         <i class="fas fa-heart"></i>
-                        <span class="absolute -top-2 -right-2 w-8 h-8 bg-slate-100 text-slate-600 rounded-full text-sm font-bold flex items-center justify-center border-2 border-white">4</span>
+                        <span class="absolute -top-2 -right-2 w-8 h-8 bg-slate-500 text-white rounded-full text-sm font-bold flex items-center justify-center border-2 border-white">4</span>
                     </div>
-                    <h4 class="font-bold text-xl mb-2">Seguimiento Continuo</h4>
+                    <h4 class="font-bold text-xl mb-2 text-slate-800">Seguimiento</h4>
                     <p class="text-gray-500 text-sm px-4">Te acompañamos en cada paso con chequeos regulares.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-10">
-        <div class="max-w-6xl mx-auto blue-gradient rounded-3xl p-12 text-center text-white relative overflow-hidden">
-            <div class="absolute -top-10 -left-10 w-40 h-40 bg-white opacity-10 rounded-full"></div>
-            <div class="absolute -bottom-10 -right-10 w-60 h-60 bg-white opacity-10 rounded-full"></div>
+    <section class="py-20 px-6 md:px-10">
+        <div class="max-w-6xl mx-auto blue-gradient rounded-[2.5rem] p-12 text-center text-white relative overflow-hidden shadow-2xl" data-aos="zoom-in">
+            <div class="absolute -top-24 -left-24 w-64 h-64 bg-white opacity-10 rounded-full blur-2xl"></div>
+            <div class="absolute -bottom-24 -right-24 w-80 h-80 bg-white opacity-10 rounded-full blur-2xl"></div>
             
-            <i class="fas fa-hospital-symbol text-5xl mb-6"></i>
-            <h2 class="text-4xl font-bold mb-4">Tu Salud es Nuestra Prioridad</h2>
-            <p class="text-blue-50 opacity-90 mb-10 max-w-xl mx-auto">No esperes más para recibir la atención médica que mereces. Estamos aquí para cuidarte con profesionalismo.</p>
-            
-            <div class="flex flex-wrap justify-center gap-4">
-                <button class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition shadow-lg">
-                    Agendar Cita Ahora <i class="far fa-calendar-alt ml-2"></i>
-                </button>
-                <button class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition">
-                    Explorar Servicios &rarr;
-                </button>
-            </div>
+            <div class="relative z-10">
+                <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center text-4xl mx-auto mb-6 backdrop-blur-sm">
+                    <i class="fas fa-hospital-symbol"></i>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Tu Salud es Nuestra Prioridad</h2>
+                <p class="text-blue-50 opacity-90 mb-10 max-w-xl mx-auto text-lg">No esperes más para recibir la atención médica que mereces. Estamos aquí para cuidarte con profesionalismo y calidez.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition shadow-lg transform hover:-translate-y-1">
+                        Agendar Cita Ahora <i class="far fa-calendar-alt ml-2"></i>
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition transform hover:-translate-y-1">
+                        Explorar Servicios &rarr;
+                    </button>
+                </div>
 
-            <div class="mt-12 flex justify-center gap-8 text-sm border-t border-white/20 pt-8">
-                <span><i class="fas fa-check-circle mr-2"></i> Certificados</span>
-                <span><i class="fas fa-user-md mr-2"></i> Especialistas</span>
-                <span><i class="fas fa-heart mr-2"></i> Atención Personalizada</span>
+                <div class="mt-12 flex flex-wrap justify-center gap-6 md:gap-12 text-sm md:text-base border-t border-white/20 pt-8 opacity-80">
+                    <span><i class="fas fa-check-circle mr-2 text-green-300"></i> Certificados</span>
+                    <span><i class="fas fa-user-md mr-2 text-green-300"></i> Especialistas</span>
+                    <span><i class="fas fa-heart mr-2 text-green-300"></i> Atención Personalizada</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-zinc-900 text-white pt-20 pb-10 px-10">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-zinc-800 pb-12">
-            <div>
-                <div class="flex items-center gap-2 mb-6">
-                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white">
-                        <i class="fas fa-plus-square text-sm"></i>
+    <footer id="contacto" class="bg-zinc-900 text-white pt-20 pb-10 px-6 md:px-10 relative overflow-hidden">
+        <div class="footer-circle w-96 h-96 top-0 right-0"></div>
+
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-zinc-800 pb-12">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white">
+                            <i class="fas fa-plus-square text-sm"></i>
+                        </div>
+                        <span class="text-xl font-bold">Nova<span class="text-green-500">Care</span></span>
                     </div>
-                    <span class="text-xl font-bold">Nova<span class="text-green-500">Care</span></span>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                        Centro médico de confianza comprometido con tu salud y bienestar. Atención profesional y tecnología avanzada a tu alcance.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-blue-600 hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-blue-400 hover:text-white transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-pink-600 hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
-                <p class="text-zinc-400 text-sm leading-relaxed">
-                    Centro médico de confianza comprometido con tu salud y bienestar. Atención profesional y tecnología avanzada.
-                </p>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Enlaces Rápidos</h4>
+                    <ul class="text-zinc-400 space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-blue-400 transition-colors">Servicios</a></li>
+                        <li><a href="#nosotros" class="hover:text-blue-400 transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Agendar Cita</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Recursos</h4>
+                    <ul class="text-zinc-400 space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Blog de Salud</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">FAQs</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition-colors">Términos de Servicio</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-6 text-lg">Contacto</h4>
+                    <ul class="text-zinc-400 space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-blue-500"></i> 
+                            <span>Calle Principal #123<br>Ciudad Médica, CP 10101</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-blue-500"></i> 
+                            <span>+1 (234) 567-8900</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-blue-500"></i> 
+                            <span>contacto@novacare.com</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h4 class="font-bold mb-6">Enlaces Rápidos</h4>
-                <ul class="text-zinc-400 space-y-3 text-sm">
-                    <li><a href="#" class="hover:text-white">Inicio</a></li>
-                    <li><a href="#" class="hover:text-white">Servicios</a></li>
-                    <li><a href="#" class="hover:text-white">Sobre Nosotros</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-6">Recursos</h4>
-                <ul class="text-zinc-400 space-y-3 text-sm">
-                    <li><a href="#" class="hover:text-white">FAQs</a></li>
-                    <li><a href="#" class="hover:text-white">Política de Privacidad</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-bold mb-6">Contacto</h4>
-                <ul class="text-zinc-400 space-y-3 text-sm">
-                    <li><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i> Calle Principal #123</li>
-                    <li><i class="fas fa-phone mr-2 text-blue-500"></i> +1 (234) 567-8900</li>
-                    <li><i class="fas fa-envelope mr-2 text-blue-500"></i> contacto@novacare.com</li>
-                </ul>
-            </div>
+        <p class="text-center text-zinc-500 text-xs mt-10 border-t border-zinc-800 pt-8">
+            © 2026 NovaCare. Todos los derechos reservados. 
+            <span class="block sm:inline mt-2 sm:mt-0 sm:ml-4">
+                Desarrollado por 
+                <a href="https://novastudioweb.github.io" target="_blank" class="text-zinc-400 hover:text-blue-500 transition-colors font-semibold">
+                    Nova Studio Web
+                </a>
+            </span>
+        </p>
         </div>
-        <p class="text-center text-zinc-500 text-xs mt-10">© 2026 NovaCare. Todos los derechos reservados.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true, // Animation happens only once while scrolling
+            offset: 100, // Offset (in px) from the original trigger point
+            duration: 800, // Duration of animation
+            easing: 'ease-out-cubic',
+        });
+
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            // Cambiar icono de hamburguesa a X
+            const icon = btn.querySelector('i');
+            if (menu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Smooth Scroll for Anchor Links (Backup for older browsers)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.remove('open'); // Close mobile menu on click
+                const icon = btn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
