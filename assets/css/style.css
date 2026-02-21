@@ -6,12 +6,38 @@
     --soft-bg: #f8fbff;
 }
 
+/* =========================================
+   1. CONFIGURACIÓN GLOBAL
+   ========================================= */
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #ffffff;
 }
 
-/* 1. Custom Gradients */
+/* Personalización del color al seleccionar texto */
+::selection {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+}
+
+/* Diseño personalizado de la barra de desplazamiento (Scrollbar) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* =========================================
+   2. FONDOS Y GRADIENTES
+   ========================================= */
 .gradient-bg {
     background: radial-gradient(circle at top right, #eef5ff, transparent),
                 radial-gradient(circle at bottom left, #f0fff4, transparent);
@@ -22,29 +48,22 @@ body {
     background: linear-gradient(135deg, #0052d4 0%, #4364f7 50%, #6fb1fc 100%);
 }
 
-/* 2. Glassmorphism for the Stats Card (Image 1) */
+/* Patrón de puntos usado en la sección de Nosotros (About) */
+.bg-dots {
+    background-image: radial-gradient(#cbd5e1 2px, transparent 2px);
+    background-size: 20px 20px;
+}
+
+/* =========================================
+   3. EFECTOS Y COMPONENTES (Tarjetas, Vidrio)
+   ========================================= */
 .glass-card {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Soporte necesario para Safari/iOS */
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* 3. The Connector Line for Steps (Image 4) */
-@media (min-width: 768px) {
-    .step-line::before {
-        content: "";
-        position: absolute;
-        top: 3rem; /* Aligns with the middle of the icons */
-        left: 10%;
-        right: 10%;
-        height: 2px;
-        background: linear-gradient(90deg, #0062ff 0%, #4ade80 50%, #fbbf24 100%);
-        opacity: 0.2;
-        z-index: 0;
-    }
-}
-
-/* 4. Custom Shadows and Borders */
 .service-card {
     transition: all 0.3s ease;
     border: 1px solid #f1f5f9;
@@ -56,23 +75,65 @@ body {
     box-shadow: 0 20px 25px -5px rgba(0, 98, 255, 0.1), 0 10px 10px -5px rgba(0, 98, 255, 0.04);
 }
 
-/* 5. Icon Containers (Squircle shape) */
 .icon-box {
     border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
-.icon-box:hover {
+/* Mejora: El icono ahora reacciona automáticamente cuando pasas el mouse por toda la tarjeta */
+.service-card:hover .icon-box {
     transform: rotate(-5deg) scale(1.1);
 }
 
-/* 6. Footer Decoration (Image 6) */
+/* =========================================
+   4. DECORACIONES ESPECÍFICAS
+   ========================================= */
+/* Línea conectora para la sección de "Pasos" */
+@media (min-width: 768px) {
+    .step-line::before {
+        content: "";
+        position: absolute;
+        top: 3rem; /* Alineado con el centro de los iconos */
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg, #0062ff 0%, #4ade80 50%, #fbbf24 100%);
+        opacity: 0.2;
+        z-index: 0;
+    }
+}
+
+/* Círculo decorativo del Footer */
 .footer-circle {
     position: absolute;
     border-radius: 50%;
     background: white;
     opacity: 0.05;
+}
+
+/* =========================================
+   5. ANIMACIONES PERSONALIZADAS
+   ========================================= */
+/* Estas animaciones le dan vida a las imágenes que tienen la clase en el HTML */
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }

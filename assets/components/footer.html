@@ -1,71 +1,112 @@
 <footer id="contacto" class="bg-zinc-900 text-white pt-20 pb-10 px-6 md:px-10 relative overflow-hidden">
     <div class="footer-circle w-96 h-96 top-0 right-0"></div>
 
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-7xl mx-auto relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-zinc-800 pb-12">
+            
             <div class="md:col-span-1">
-                <div class="flex items-center gap-2 mb-6">
-                    <div class="w-8 h-8 bg-white rounded-xl flex items-center justify-center shadow-lg overflow-hidden">
+                <a href="./index.html" class="flex items-center gap-2 mb-6 group cursor-pointer inline-flex">
+                    <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg overflow-hidden group-hover:rotate-12 transition-transform duration-300">
                         <img src="assets/img/logo_removed.png" alt="NovaCare Logo" class="w-full h-full object-contain p-1">
                     </div>
-                    <span class="text-xl font-bold">Nova<span class="text-green-500">Care</span></span>
-                </div>
+                    <span class="text-2xl font-extrabold tracking-tight">Nova<span class="text-green-500">Care</span></span>
+                </a>
                 <p class="text-zinc-400 text-sm leading-relaxed mb-6">
-                    Centro médico de confianza comprometido con tu salud y bienestar. Atención profesional y tecnología avanzada a tu alcance.
+                    Centro médico de confianza comprometido con tu salud y bienestar. Atención profesional y tecnología avanzada a tu alcance en Santo Domingo Este.
                 </p>
                 <div class="flex gap-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-blue-600 hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-blue-400 hover:text-white transition-all"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-pink-600 hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-blue-600 hover:text-white transition-all transform hover:-translate-y-1" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-blue-400 hover:text-white transition-all transform hover:-translate-y-1" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-pink-600 hover:text-white transition-all transform hover:-translate-y-1" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             
             <div>
-                <h4 class="font-bold mb-6 text-lg">Enlaces Rápidos</h4>
+                <h4 class="font-bold mb-6 text-lg tracking-wide">Enlaces Rápidos</h4>
                 <ul class="text-zinc-400 space-y-3 text-sm">
-                    <li><a href="./index.html" class="hover:text-blue-400 transition-colors">Inicio</a></li>
-                    <li><a href="./services.html" class="hover:text-blue-400 transition-colors">Servicios</a></li>
-                    <li><a href="./about.html" class="hover:text-blue-400 transition-colors">Sobre Nosotros</a></li>
-                    <li><a href="./contact.html" class="hover:text-blue-400 transition-colors">Agendar Cita</a></li>
+                    <li><a href="./index.html" class="hover:text-blue-400 hover:translate-x-2 transition-all inline-block">Inicio</a></li>
+                    <li><a href="./services.html" class="hover:text-blue-400 hover:translate-x-2 transition-all inline-block">Servicios</a></li>
+                    <li><a href="./about.html" class="hover:text-blue-400 hover:translate-x-2 transition-all inline-block">Sobre Nosotros</a></li>
+                    <li>
+                        <button onclick="window.open('https://wa.me/18095678900?text=Hola%20NovaCare%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita.', '_blank')" class="hover:text-blue-400 hover:translate-x-2 transition-all inline-block text-left w-full">
+                            Agendar Cita
+                        </button>
+                    </li>
                 </ul>
             </div>
             
             <div>
-                <h4 class="font-bold mb-6 text-lg">Recursos</h4>
+                <h4 class="font-bold mb-6 text-lg tracking-wide">Recursos</h4>
                 <ul class="text-zinc-400 space-y-3 text-sm">
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Blog de Salud</a></li>
-                    <li><a href="./faq.html" class="hover:text-blue-400 transition-colors">FAQs</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Política de Privacidad</a></li>
-                    <li><a href="#" class="hover:text-blue-400 transition-colors">Términos de Servicio</a></li>
+                    <li><a href="/blog.html" class="hover:text-blue-400 hover:translate-x-2 transition-all inline-block">Blog de Salud</a></li>
+                    <li><a href="./faq.html" class="hover:text-blue-400 hover:translate-x-2 transition-all inline-block">Preguntas Frecuentes</a></li>
+                    <li><a href="/privacy.html" class="hover:text-blue-400 hover:translate-x-2 transition-all inline-block">Política de Privacidad</a></li>
+                    <li><a href="/terms.html" class="hover:text-blue-400 hover:translate-x-2 transition-all inline-block">Términos de Servicio</a></li>
                 </ul>
             </div>
             
             <div>
-                <h4 class="font-bold mb-6 text-lg">Contacto</h4>
+                <h4 class="font-bold mb-6 text-lg tracking-wide">Contacto</h4>
                 <ul class="text-zinc-400 space-y-4 text-sm">
-                    <li class="flex items-start gap-3">
-                        <i class="fas fa-map-marker-alt mt-1 text-blue-500"></i> 
-                        <span>Calle Principal #123<br>Ciudad Médica, CP 10101</span>
+                    <li class="flex items-start gap-3 group">
+                        <i class="fas fa-map-marker-alt mt-1 text-blue-500 group-hover:text-green-400 transition-colors"></i> 
+                        <a href="https://www.google.com/maps/search/?api=1&query=Av.+San+Vicente+de+Paúl+123,+Santo+Domingo+Este,+República+Dominicana" target="_blank" rel="noopener noreferrer" class="leading-relaxed hover:text-white transition-colors">
+                            Av. San Vicente de Paúl #123<br>Santo Domingo Este, Rep. Dom.
+                        </a>
                     </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fas fa-phone text-blue-500"></i> 
-                        <span>+1 (234) 567-8900</span>
+                    <li class="flex items-center gap-3 group">
+                        <i class="fas fa-phone text-blue-500 group-hover:text-green-400 transition-colors"></i> 
+                        <button onclick="window.open('https://wa.me/18095678900?text=Hola%20NovaCare%2C%20me%20gustar%C3%ADa%20hacer%20una%20consulta.', '_blank')" class="hover:text-white transition-colors">
+                            +1 (809) 567-8900
+                        </button>
                     </li>
-                    <li class="flex items-center gap-3">
-                        <i class="fas fa-envelope text-blue-500"></i> 
-                        <span>contacto@novacare.com</span>
+                    <li class="flex items-center gap-3 group">
+                        <i class="fas fa-envelope text-blue-500 group-hover:text-green-400 transition-colors"></i> 
+                        <a href="mailto:contacto@novacare.com" class="hover:text-white transition-colors">contacto@novacare.com</a>
                     </li>
                 </ul>
             </div>
         </div>
-        <p class="text-center text-zinc-500 text-xs mt-10 border-t border-zinc-800 pt-8">
-            © 2026 NovaCare. Todos los derechos reservados. 
-            <span class="block sm:inline mt-2 sm:mt-0 sm:ml-4">
-                Desarrollado por 
-                <a href="https://novastudioweb.github.io" target="_blank" class="text-zinc-400 hover:text-blue-500 transition-colors font-semibold">
+
+        <div class="mt-12 border-t border-zinc-800/80 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            
+            <p class="text-zinc-500 text-sm font-medium text-center md:text-left">
+                &copy; <span id="current-year">2026</span> NovaCare. <br class="md:hidden">Todos los derechos reservados. 
+            </p>
+            
+            <div class="flex items-center gap-2 text-zinc-500 text-sm font-medium">
+                <span>Desarrollado con</span>
+                <i class="fas fa-heart text-blue-500 animate-pulse text-xs"></i>
+                <span>por</span>
+                <a href="https://novastudioweb.github.io" target="_blank" rel="noopener noreferrer" class="relative text-zinc-300 hover:text-white transition-colors duration-300 group font-bold">
                     Nova Studio Web
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
                 </a>
-            </span>
-        </p>
+            </div>
+
+        </div>
+
     </div>
+
+    <a href="https://wa.me/18095678900?text=Hola%20NovaCare%2C%20me%20gustar%C3%ADa%20hacer%20una%20consulta." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="fixed bottom-20 right-6 md:bottom-24 md:right-10 z-[100] group" 
+       aria-label="Contactar por WhatsApp">
+        
+        <div class="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+        
+        <div class="relative bg-green-500 text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-3xl md:text-4xl shadow-2xl transform group-hover:scale-110 group-hover:bg-green-600 transition-all duration-300">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        
+        <span class="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white text-slate-700 text-sm font-bold py-2 px-4 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap hidden md:block">
+            ¿En qué podemos ayudarte?
+        </span>
+    </a>
 </footer>
+
+
+        <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        </script>

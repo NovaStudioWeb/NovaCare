@@ -9,11 +9,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    
     <link rel="icon" type="image/png" href="assets/img/logo_removed.png">
-    
     <link rel="apple-touch-icon" href="assets/img/logo_removed.png">
-    
     <link rel="shortcut icon" href="assets/img/logo_removed.png" type="image/x-icon">
+    
     <style>
         .gradient-bg { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); }
         
@@ -37,46 +37,7 @@
 </head>
 <body class="font-sans text-slate-800 antialiased overflow-x-hidden bg-white">
 
-    <header class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
-        <div class="flex justify-between items-center px-6 md:px-10 py-4 max-w-7xl mx-auto">
-            <a href="./index.html" class="flex items-center gap-2 group" data-aos="fade-down">
-                <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-lg shadow-blue-100 group-hover:rotate-12 transition-transform duration-300 overflow-hidden">
-                    <img src="assets/img/logo_removed.png" alt="NovaCare Logo" class="w-full h-full object-contain p-1">
-                </div>
-                
-                <span class="text-2xl font-extrabold text-blue-900 tracking-tight">
-                    Nova<span class="text-green-600">Care</span>
-                </span>
-            </a>
-            <nav class="hidden md:flex gap-8 font-semibold text-gray-500" data-aos="fade-down" data-aos-delay="100">
-                <a href="./services.html" class="hover:text-blue-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all duration-300">Servicios</a>
-                <a href="./about.html" class="hover:text-blue-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all duration-300">Sobre Nosotros</a>
-                <a href="./contact.html" class="hover:text-blue-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all duration-300">Contacto</a>
-                <a href="./faq.html" class="hover:text-blue-600 transition-colors relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-blue-600 after:left-0 after:-bottom-1 hover:after:w-full after:transition-all duration-300">FAQ</a>
-            </nav>
-
-            <div class="flex items-center gap-4" data-aos="fade-down" data-aos-delay="200">
-                <button class="hidden sm:block bg-blue-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-200 transition-all active:scale-95 transform">
-                    Reservar Cita
-                </button>
-                <button id="mobile-menu-btn" class="md:hidden text-2xl text-blue-900 focus:outline-none p-2 rounded-lg hover:bg-blue-50 transition">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-100">
-            <nav class="flex flex-col p-6 gap-4 font-semibold text-gray-600 text-center">
-                <a href="./services.html" class="hover:text-blue-600 py-2">Servicios</a>
-                <a href="./about.html" class="hover:text-blue-600 py-2">Sobre Nosotros</a>
-                <a href="./contact.html" class="hover:text-blue-600 py-2">Contacto</a>
-                <a href="./faq.html" class="hover:text-blue-600 py-2">FAQ</a>
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold w-full mt-2">
-                    Reservar Cita
-                </button>
-            </nav>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <section class="gradient-bg pt-40 pb-16 px-6 text-center">
         <div class="max-w-4xl mx-auto" data-aos="fade-up">
@@ -194,101 +155,22 @@
 
     </section>
 
-    <footer id="contacto" class="bg-zinc-900 text-white pt-20 pb-10 px-6 md:px-10 relative overflow-hidden">
-        <div class="footer-circle w-96 h-96 top-0 right-0"></div>
-
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-zinc-800 pb-12">
-                <div class="md:col-span-1">
-                    <div class="flex items-center gap-2 mb-6">
-                        <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white">
-                            <i class="fas fa-plus-square text-sm"></i>
-                        </div>
-                        <span class="text-xl font-bold">Nova<span class="text-green-500">Care</span></span>
-                    </div>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">
-                        Centro médico de confianza comprometido con tu salud y bienestar. Atención profesional y tecnología avanzada a tu alcance.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-blue-600 hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-blue-400 hover:text-white transition-all"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-zinc-400 hover:bg-pink-600 hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-6 text-lg">Enlaces Rápidos</h4>
-                    <ul class="text-zinc-400 space-y-3 text-sm">
-                        <li><a href="./index.html" class="hover:text-blue-400 transition-colors">Inicio</a></li>
-                        <li><a href="#servicios" class="hover:text-blue-400 transition-colors">Servicios</a></li>
-                        <li><a href="./about.html" class="hover:text-blue-400 transition-colors">Sobre Nosotros</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Agendar Cita</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-6 text-lg">Recursos</h4>
-                    <ul class="text-zinc-400 space-y-3 text-sm">
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Blog de Salud</a></li>
-                        <li><a href="./faq.html" class="hover:text-blue-400 transition-colors">FAQs</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Política de Privacidad</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Términos de Servicio</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold mb-6 text-lg">Contacto</h4>
-                    <ul class="text-zinc-400 space-y-4 text-sm">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-map-marker-alt mt-1 text-blue-500"></i> 
-                            <span>Calle Principal #123<br>Ciudad Médica, CP 10101</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-blue-500"></i> 
-                            <span>+1 (234) 567-8900</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-blue-500"></i> 
-                            <span>contacto@novacare.com</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        <p class="text-center text-zinc-500 text-xs mt-10 border-t border-zinc-800 pt-8">
-            © 2026 NovaCare. Todos los derechos reservados. 
-            <span class="block sm:inline mt-2 sm:mt-0 sm:ml-4">
-                Desarrollado por 
-                <a href="https://novastudioweb.github.io" target="_blank" class="text-zinc-400 hover:text-blue-500 transition-colors font-semibold">
-                    Nova Studio Web
-                </a>
-            </span>
-        </p>
-        </div>
-    </footer>
-    <script src="assets/js/main.js"></script>
+    <div id="footer-placeholder"></div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script src="assets/js/main.js"></script>
+
     <script>
-        AOS.init({ once: true, offset: 50, duration: 800 });
-
-        // Mobile Menu Logic
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('open');
-            const icon = btn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-        // Opcional: Cerrar otros detalles cuando uno se abre (Efecto Acordeón estricto)
-        const details = document.querySelectorAll("details");
-        details.forEach((targetDetail) => {
-            targetDetail.addEventListener("click", () => {
-                details.forEach((detail) => {
-                    if (detail !== targetDetail) {
-                        detail.removeAttribute("open");
-                    }
+        document.addEventListener('DOMContentLoaded', () => {
+            const details = document.querySelectorAll("details");
+            details.forEach((targetDetail) => {
+                targetDetail.addEventListener("click", () => {
+                    details.forEach((detail) => {
+                        if (detail !== targetDetail) {
+                            detail.removeAttribute("open");
+                        }
+                    });
                 });
             });
         });
