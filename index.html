@@ -79,41 +79,93 @@
         </div>
     </section>
 
-    <section id="servicios" class="py-24 px-6 md:px-10 text-center max-w-7xl mx-auto">
-        <div data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-slate-900">Servicios Médicos <span class="text-blue-600">Completos</span></h2>
-            <p class="text-gray-500 mt-4 text-lg">Desde consultas generales hasta especialidades avanzadas.</p>
-        </div>
+<section id="servicios" class="py-24 px-6 md:px-10 text-center max-w-7xl mx-auto">
+    <div data-aos="fade-up">
+        <h2 class="text-4xl font-bold text-slate-900">Servicios Médicos <span class="text-blue-600">Completos</span></h2>
+        <p class="text-gray-500 mt-4 text-lg">Desde consultas generales hasta especialidades avanzadas.</p>
+    </div>
+    
+    <div class="relative w-full max-w-7xl mx-auto mt-16 group/slider">
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-            <div class="service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-blue-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+        <button id="slideLeft" class="hidden md:flex absolute -left-5 top-[40%] -translate-y-1/2 z-10 w-14 h-14 bg-white text-blue-600 rounded-full shadow-xl border border-slate-100 items-center justify-center hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 opacity-0 group-hover/slider:opacity-100 cursor-pointer">
+            <i class="fas fa-chevron-left text-xl"></i>
+        </button>
+
+        <div class="flex overflow-x-auto gap-8 pb-10 snap-x snap-mandatory hide-scrollbar cursor-grab active:cursor-grabbing" id="services-carousel">
+            
+            <div class="w-[85vw] md:w-[350px] flex-shrink-0 snap-center service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-blue-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-box w-14 h-14 bg-blue-600 text-white mb-6 text-2xl shadow-lg shadow-blue-200">
                     <i class="fas fa-stethoscope"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-3 text-slate-800">Medicina General</h3>
-                <p class="text-gray-500 mb-6 leading-relaxed">Consultas médicas de rutina, diagnósticos precisos y seguimiento personalizado para toda la familia.</p>
-                <a href="#" class="text-blue-600 font-bold group-hover:underline flex items-center gap-2">Ver más <i class="fas fa-arrow-right text-sm"></i></a>
+                <p class="text-gray-500 mb-6 leading-relaxed select-none">Consultas médicas de rutina, diagnósticos precisos y seguimiento personalizado para toda la familia.</p>
+                <a href="https://wa.me/18095678900?text=Hola%20NovaCare%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20de%20Medicina%20General." target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold group-hover:underline flex items-center gap-2">
+                    Consultar por WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
             </div>
 
-            <div class="service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-cyan-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-[85vw] md:w-[350px] flex-shrink-0 snap-center service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-cyan-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box w-14 h-14 bg-cyan-400 text-white mb-6 text-2xl shadow-lg shadow-cyan-200">
                     <i class="fas fa-heartbeat"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-3 text-slate-800">Cardiología</h3>
-                <p class="text-gray-500 mb-6 leading-relaxed">Especialistas en salud cardiovascular con tecnología de punta para la prevención y el tratamiento.</p>
-                <a href="#" class="text-cyan-500 font-bold group-hover:underline flex items-center gap-2">Ver más <i class="fas fa-arrow-right text-sm"></i></a>
+                <p class="text-gray-500 mb-6 leading-relaxed select-none">Especialistas en salud cardiovascular con tecnología de punta para la prevención y el tratamiento.</p>
+                <a href="https://wa.me/18095678900?text=Hola%20NovaCare%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20de%20Cardiolog%C3%ADa." target="_blank" rel="noopener noreferrer" class="text-cyan-500 font-bold group-hover:underline flex items-center gap-2">
+                    Consultar por WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
             </div>
 
-            <div class="service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-green-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-[85vw] md:w-[350px] flex-shrink-0 snap-center service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-green-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box w-14 h-14 bg-green-500 text-white mb-6 text-2xl shadow-lg shadow-green-200">
                     <i class="fas fa-baby"></i>
                 </div>
                 <h3 class="text-xl font-bold mb-3 text-slate-800">Pediatría</h3>
-                <p class="text-gray-500 mb-6 leading-relaxed">Cuidado especializado para los más pequeños, con un enfoque amable, seguro y divertido.</p>
-                <a href="#" class="text-green-500 font-bold group-hover:underline flex items-center gap-2">Ver más <i class="fas fa-arrow-right text-sm"></i></a>
+                <p class="text-gray-500 mb-6 leading-relaxed select-none">Cuidado especializado para los más pequeños, con un enfoque amable, seguro y divertido.</p>
+                <a href="https://wa.me/18095678900?text=Hola%20NovaCare%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20de%20Pediatr%C3%ADa." target="_blank" rel="noopener noreferrer" class="text-green-500 font-bold group-hover:underline flex items-center gap-2">
+                    Consultar por WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
             </div>
+
+            <div class="w-[85vw] md:w-[350px] flex-shrink-0 snap-center service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-pink-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box w-14 h-14 bg-pink-500 text-white mb-6 text-2xl shadow-lg shadow-pink-200">
+                    <i class="fas fa-venus"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Ginecología</h3>
+                <p class="text-gray-500 mb-6 leading-relaxed select-none">Salud reproductiva, control prenatal y exámenes de rutina enfocados en la mujer.</p>
+                <a href="https://wa.me/18095678900?text=Hola%20NovaCare%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20de%20Ginecolog%C3%ADa." target="_blank" rel="noopener noreferrer" class="text-pink-500 font-bold group-hover:underline flex items-center gap-2">
+                    Consultar por WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+
+            <div class="w-[85vw] md:w-[350px] flex-shrink-0 snap-center service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-orange-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box w-14 h-14 bg-orange-500 text-white mb-6 text-2xl shadow-lg shadow-orange-200">
+                    <i class="fas fa-bone"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Ortopedia</h3>
+                <p class="text-gray-500 mb-6 leading-relaxed select-none">Tratamiento de lesiones deportivas, fracturas, dolores articulares y rehabilitación.</p>
+                <a href="https://wa.me/18095678900?text=Hola%20NovaCare%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20de%20Ortopedia." target="_blank" rel="noopener noreferrer" class="text-orange-500 font-bold group-hover:underline flex items-center gap-2">
+                    Consultar por WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+
+            <div class="w-[85vw] md:w-[350px] flex-shrink-0 snap-center service-card p-8 rounded-2xl bg-white text-left group border border-slate-100 hover:border-purple-200 transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
+                <div class="icon-box w-14 h-14 bg-purple-500 text-white mb-6 text-2xl shadow-lg shadow-purple-200">
+                    <i class="fas fa-allergies"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-800">Dermatología</h3>
+                <p class="text-gray-500 mb-6 leading-relaxed select-none">Cuidado integral de la piel, tratamiento de alergias y procedimientos clínico-estéticos.</p>
+                <a href="https://wa.me/18095678900?text=Hola%20NovaCare%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta%20de%20Dermatolog%C3%ADa." target="_blank" rel="noopener noreferrer" class="text-purple-500 font-bold group-hover:underline flex items-center gap-2">
+                    Consultar por WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+
         </div>
-    </section>
+
+        <button id="slideRight" class="hidden md:flex absolute -right-5 top-[40%] -translate-y-1/2 z-10 w-14 h-14 bg-white text-blue-600 rounded-full shadow-xl border border-slate-100 items-center justify-center hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 opacity-0 group-hover/slider:opacity-100 cursor-pointer">
+            <i class="fas fa-chevron-right text-xl"></i>
+        </button>
+    </div>
+</section>
 
     <section id="nosotros" class="py-24 px-6 md:px-10 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
