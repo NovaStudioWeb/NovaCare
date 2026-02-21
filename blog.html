@@ -30,12 +30,12 @@
                 Descubre consejos de nuestros especialistas, noticias médicas y guías prácticas para llevar una vida más saludable.
             </p>
             
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="#" class="px-5 py-2 rounded-full bg-blue-600 text-white font-medium text-sm hover:shadow-lg transition-all">Todos</a>
-                <a href="#" class="px-5 py-2 rounded-full bg-white text-gray-600 font-medium text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all">Cardiología</a>
-                <a href="#" class="px-5 py-2 rounded-full bg-white text-gray-600 font-medium text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all">Nutrición</a>
-                <a href="#" class="px-5 py-2 rounded-full bg-white text-gray-600 font-medium text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all">Pediatría</a>
-                <a href="#" class="px-5 py-2 rounded-full bg-white text-gray-600 font-medium text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all">Salud Mental</a>
+            <div class="flex flex-wrap justify-center gap-3" id="blog-filters">
+                <button data-filter="todos" class="filter-btn px-5 py-2 rounded-full bg-blue-600 text-white font-medium text-sm border border-transparent hover:shadow-lg transition-all focus:outline-none">Todos</button>
+                <button data-filter="cardiologia" class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all focus:outline-none">Cardiología</button>
+                <button data-filter="nutricion" class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all focus:outline-none">Nutrición</button>
+                <button data-filter="pediatria" class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all focus:outline-none">Pediatría</button>
+                <button data-filter="salud-mental" class="filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all focus:outline-none">Salud Mental</button>
             </div>
         </div>
     </section>
@@ -43,7 +43,7 @@
     <main class="flex-grow py-16 px-6 md:px-10">
         <div class="max-w-7xl mx-auto">
             
-            <div class="mb-20" data-aos="fade-up" data-aos-delay="100">
+            <div class="mb-20 blog-article" data-category="cardiologia" data-aos="fade-up" data-aos-delay="100">
                 <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 flex flex-col lg:flex-row group">
                     <div class="lg:w-1/2 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&q=80&w=800" alt="Corazón sano" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 min-h-[300px]">
@@ -82,9 +82,9 @@
                 <h3 class="text-2xl font-bold text-slate-900">Artículos Recientes</h3>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 
-                <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="blog-article bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-2" data-category="nutricion" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative overflow-hidden h-56">
                         <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&q=80&w=600" alt="Nutrición" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Nutrición</div>
@@ -99,7 +99,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="blog-article bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-2" data-category="pediatria" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative overflow-hidden h-56">
                         <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=600" alt="Pediatría" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Pediatría</div>
@@ -114,7 +114,7 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                <div class="blog-article bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-2" data-category="salud-mental" data-aos="fade-up" data-aos-delay="300">
                     <div class="relative overflow-hidden h-56">
                         <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600" alt="Salud Mental" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-4 left-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Salud Mental</div>
@@ -129,28 +129,97 @@
                     </div>
                 </div>
 
+                <div class="blog-article bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-2" data-category="cardiologia" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600" alt="Presión Arterial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Cardiología</div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-400 mb-2 font-medium"><i class="far fa-calendar-alt mr-1"></i> 28 Ene, 2026</p>
+                        <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <a href="#">Controlando la hipertensión de forma natural</a>
+                        </h4>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">Más allá de los medicamentos, conoce los cambios de estilo de vida que pueden regular tu presión arterial eficazmente.</p>
+                        <a href="#" class="text-blue-600 font-bold text-sm flex items-center gap-2 group-hover:underline">Leer artículo <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="blog-article bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-2" data-category="nutricion" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=600" alt="Alimentación" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Nutrición</div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-400 mb-2 font-medium"><i class="far fa-calendar-alt mr-1"></i> 22 Ene, 2026</p>
+                        <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <a href="#">Superalimentos: ¿Marketing o realidad médica?</a>
+                        </h4>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">Desmentimos los mitos sobre los llamados "superalimentos" y te mostramos cuáles realmente valen la pena incluir en tu dieta.</p>
+                        <a href="#" class="text-blue-600 font-bold text-sm flex items-center gap-2 group-hover:underline">Leer artículo <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="blog-article bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl border border-slate-100 transition-all duration-300 group hover:-translate-y-2" data-category="pediatria" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative overflow-hidden h-56">
+                        <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=600" alt="Niño durmiendo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Pediatría</div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-400 mb-2 font-medium"><i class="far fa-calendar-alt mr-1"></i> 15 Ene, 2026</p>
+                        <h4 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <a href="#">La importancia del sueño en el desarrollo infantil</a>
+                        </h4>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">Descubre cuántas horas deben dormir tus hijos según su edad y cómo crear rutinas de sueño saludables para la familia.</p>
+                        <a href="#" class="text-blue-600 font-bold text-sm flex items-center gap-2 group-hover:underline">Leer artículo <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></a>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="mt-12 text-center" data-aos="fade-up">
-                <button class="bg-white border-2 border-blue-100 text-blue-600 px-8 py-3 rounded-xl font-bold hover:border-blue-600 hover:bg-blue-50 transition-all">
-                    Cargar más artículos <i class="fas fa-sync-alt ml-2"></i>
+            <div class="mt-8 text-center" data-aos="fade-up">
+                <button class="bg-white border-2 border-blue-100 text-blue-600 px-8 py-3 rounded-xl font-bold hover:border-blue-600 hover:bg-blue-50 transition-all group">
+                    Cargar más artículos <i class="fas fa-sync-alt ml-2 group-hover:animate-spin"></i>
                 </button>
+            </div>
+
+            <div class="mt-24 max-w-5xl mx-auto bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 md:p-12 border border-blue-100 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10 shadow-xl group" data-aos="fade-up">
+                
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-blue-600 opacity-5 rounded-full pointer-events-none group-hover:scale-150 transition-transform duration-1000"></div>
+                <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-indigo-600 opacity-5 rounded-full pointer-events-none group-hover:scale-150 transition-transform duration-700"></div>
+                
+                <div class="relative z-10 md:w-2/3 text-center md:text-left">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-white text-blue-600 rounded-2xl mb-6 shadow-md border border-blue-50 transform group-hover:-rotate-6 transition-transform">
+                        <i class="fas fa-pen-nib text-2xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">¿Eres especialista y te gusta escribir?</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Únete a nuestra red de profesionales de la salud. Comparte tus conocimientos con miles de pacientes, educa a la comunidad y destaca como autoridad en tu área publicando tus propios artículos en el Blog de NovaCare.
+                    </p>
+                </div>
+                
+                <div class="relative z-10 w-full md:w-auto flex-shrink-0">
+                    <a href="https://wa.me/18095678900?text=Hola%20NovaCare%2C%20soy%20especialista%20y%20me%20gustar%C3%ADa%20colaborar%20escribiendo%20un%20art%C3%ADculo%20para%20su%20blog." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full md:w-auto bg-blue-600 text-white px-8 py-5 rounded-2xl font-bold text-lg hover:bg-blue-700 hover:shadow-2xl hover:shadow-blue-300 transition-all transform hover:-translate-y-2 whitespace-nowrap group/btn">
+                        Proponer Artículo <i class="fab fa-whatsapp ml-3 text-2xl text-green-400 group-hover/btn:scale-125 transition-transform"></i>
+                    </a>
+                </div>
             </div>
 
         </div>
     </main>
 
-    <section class="py-16 px-6 md:px-10 bg-blue-600">
-        <div class="max-w-4xl mx-auto text-center text-white" data-aos="zoom-in">
-            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 backdrop-blur-sm">
+    <section class="py-16 px-6 md:px-10 bg-blue-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        
+        <div class="max-w-4xl mx-auto text-center text-white relative z-10" data-aos="zoom-in">
+            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 backdrop-blur-sm shadow-inner">
                 <i class="fas fa-envelope-open-text"></i>
             </div>
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Mantente al día con tu salud</h2>
-            <p class="text-blue-100 mb-8 max-w-lg mx-auto">Suscríbete a nuestro boletín mensual para recibir consejos médicos, noticias y promociones directamente en tu correo.</p>
+            <p class="text-blue-100 mb-8 max-w-lg mx-auto text-lg">Suscríbete a nuestro boletín mensual para recibir consejos médicos, noticias y promociones directamente en tu correo.</p>
             
             <form class="flex flex-col sm:flex-row max-w-md mx-auto gap-3">
-                <input type="email" placeholder="Tu correo electrónico" required class="flex-grow px-5 py-4 rounded-xl text-slate-800 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                <button type="submit" class="bg-zinc-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-zinc-800 transition-colors whitespace-nowrap">
+                <input type="email" placeholder="Tu correo electrónico" required class="flex-grow px-5 py-4 rounded-xl text-slate-800 focus:outline-none focus:ring-4 focus:ring-blue-300 shadow-lg">
+                <button type="submit" class="bg-zinc-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-zinc-800 hover:shadow-lg transition-all transform hover:-translate-y-1 whitespace-nowrap">
                     Suscribirme
                 </button>
             </form>
@@ -160,7 +229,6 @@
     <div id="footer-placeholder"></div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <script src="assets/js/main.js"></script>
 </body>
 </html>

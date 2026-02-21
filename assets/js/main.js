@@ -1,20 +1,40 @@
-// Función para cargar componentes HTML (Header y Footer)
+/* =========================================================================
+   NOVA CARE - MAIN JAVASCRIPT
+   Desarrollado por Nova Studio Web
+   ========================================================================= */
+
+// 1. FUNCIÓN PRINCIPAL: Cargar Header y Footer dinámicamente
 async function loadComponents() {
     try {
-        // Cargar Header (Nota: asegúrate de que la ruta sea correcta. Si header.html está en la misma carpeta que index.html, cámbialo a 'header.html')
+        // Cargar Header
         const headerResponse = await fetch('assets/components/header.html');
-        const headerData = await headerResponse.text();
-        document.getElementById('header-placeholder').innerHTML = headerData;
+        if (headerResponse.ok) {
+            const headerData = await headerResponse.text();
+            document.getElementById('header-placeholder').innerHTML = headerData;
+        }
 
         // Cargar Footer
         const footerResponse = await fetch('assets/components/footer.html');
-        const footerData = await footerResponse.text();
-        document.getElementById('footer-placeholder').innerHTML = footerData;
+        if (footerResponse.ok) {
+            const footerData = await footerResponse.text();
+            document.getElementById('footer-placeholder').innerHTML = footerData;
+        }
 
-        // 1. Una vez cargado el HTML, inicializamos la lógica del menú móvil
+        // --- INICIALIZAR TODAS LAS FUNCIONES DESPUÉS DE CARGAR EL HTML ---
+        
+        // Menú móvil (Header)
         initMobileMenu();
+        
+        // Carrusel (Páginas: Inicio, Sobre Nosotros, Servicios)
+        initCarousel();
+        
+        // Filtros del Blog (Página: Blog)
+        initBlogFilters();
 
-        // 2. Inicializamos AOS Animations DESPUÉS de inyectar el Header y Footer
+        // Acordeón de FAQ (Página: Preguntas Frecuentes)
+        initFaqAccordion();
+
+        // Animaciones de Scroll
         if (typeof AOS !== 'undefined') {
             AOS.init({
                 once: true,
@@ -29,7 +49,9 @@ async function loadComponents() {
     }
 }
 
-// Lógica del menú móvil (encapsulada en una función)
+/* =========================================
+   2. LÓGICA DEL MENÚ MÓVIL
+   ========================================= */
 function initMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
@@ -47,10 +69,9 @@ function initMobileMenu() {
             }
         });
 
-        // Smooth Scroll para los enlaces del menú móvil
+        // Smooth Scroll para enlaces internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                // Solo prevenir default si es un hash de la misma página
                 if(this.getAttribute('href').startsWith('#') && this.getAttribute('href').length > 1) {
                     e.preventDefault();
                     menu.classList.remove('open');
@@ -70,7 +91,7 @@ function initMobileMenu() {
 }
 
 /* =========================================
-   NUEVA FUNCIÓN: LÓGICA DEL CARRUSEL
+   3. LÓGICA DEL CARRUSEL (DRAG & ARROWS)
    ========================================= */
 function initCarousel() {
     const carousel = document.getElementById('services-carousel');
@@ -78,10 +99,9 @@ function initCarousel() {
     const slideRight = document.getElementById('slideRight');
 
     if (carousel) {
-        // 1. Mover con las Flechas
+        // Flechas
         if (slideLeft) {
             slideLeft.addEventListener('click', () => {
-                // Desliza 382px (ancho de tarjeta + espacio)
                 carousel.scrollBy({ left: -382, behavior: 'smooth' });
             });
         }
@@ -91,14 +111,14 @@ function initCarousel() {
             });
         }
 
-        // 2. Mover Arrastrando el Mouse (Drag to Scroll)
+        // Arrastrar con mouse
         let isDown = false;
         let startX;
         let scrollLeft;
 
         carousel.addEventListener('mousedown', (e) => {
             isDown = true;
-            carousel.classList.add('active'); // Cambia el cursor a "agarrando"
+            carousel.classList.add('active'); // CSS cursor: grabbing
             startX = e.pageX - carousel.offsetLeft;
             scrollLeft = carousel.scrollLeft;
         });
@@ -117,33 +137,93 @@ function initCarousel() {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 1.5; // El 1.5 es la velocidad al arrastrar
+            const walk = (x - startX) * 1.5; // Velocidad de arrastre
             carousel.scrollLeft = scrollLeft - walk;
         });
     }
 }
 
-// Iniciar todo cuando el DOM esté listo
+/* =========================================
+   4. LÓGICA DE FILTROS DEL BLOG (CORREGIDA)
+   ========================================= */
+function initBlogFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const articles = document.querySelectorAll('.blog-article');
+
+    if (filterBtns.length > 0 && articles.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                
+                // 1. Quitar estado activo a TODOS los botones
+                filterBtns.forEach(b => {
+                    b.className = 'filter-btn px-5 py-2 rounded-full bg-white text-gray-600 font-medium text-sm border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all focus:outline-none cursor-pointer';
+                });
+                
+                // 2. Poner estado activo SOLO al botón seleccionado
+                btn.className = 'filter-btn px-5 py-2 rounded-full bg-blue-600 text-white font-medium text-sm border border-transparent shadow-md hover:shadow-lg transition-all focus:outline-none cursor-pointer';
+
+                // 3. Filtrar artículos
+                const filterValue = btn.getAttribute('data-filter');
+                
+                articles.forEach(article => {
+                    if (filterValue === 'todos' || article.getAttribute('data-category') === filterValue) {
+                        article.classList.remove('hidden');
+                        // Forzar a que el elemento sea visible tras la animación de AOS
+                        article.style.opacity = '1';
+                        article.style.transform = 'translateY(0)';
+                    } else {
+                        article.classList.add('hidden');
+                    }
+                });
+
+                // 4. Refrescar AOS para que recalcule las posiciones de la página
+                if (typeof AOS !== 'undefined') {
+                    setTimeout(() => AOS.refresh(), 100);
+                }
+            });
+        });
+    }
+}
+
+/* =========================================
+   5. LÓGICA ACORDEÓN PREGUNTAS FRECUENTES
+   ========================================= */
+function initFaqAccordion() {
+    const details = document.querySelectorAll("details");
+    if (details.length > 0) {
+        details.forEach((targetDetail) => {
+            targetDetail.addEventListener("click", () => {
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute("open");
+                    }
+                });
+            });
+        });
+    }
+}
+
+/* =========================================
+   6. INICIALIZADOR GLOBAL
+   ========================================= */
 document.addEventListener('DOMContentLoaded', () => {
-    // Llamar a la función que carga el Header y Footer (AOS ahora arranca por dentro)
+    // 1. Cargar el HTML y lanzar todas las funciones anteriores
     loadComponents();
-    
-    // Inicializar el carrusel de servicios (solo se activa si existe en la página actual)
-    initCarousel();
+
+    // 2. Establecer el año dinámico en el footer (si existe)
+    const yearSpan = document.getElementById('current-year');
+    if(yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 });
 
 /* =========================================
-   6. SEGURIDAD Y PREVENCIÓN
+   7. SEGURIDAD BÁSICA (Desactivada en Desarrollo)
    ========================================= */
 
-// Deshabilitar menú contextual
 document.addEventListener('contextmenu', event => event.preventDefault());
-
-// Bloquear atajos de teclado de herramientas de desarrollador
 document.onkeydown = function(e) {
-    if(e.keyCode == 123 || 
-      (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || 
-      (e.ctrlKey && e.keyCode == 85)) {
+    if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) {
         return false;
     }
 }
